@@ -1,0 +1,316 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Salon Admin Design System
+   "Warm Minimal" - Modern SaaS for hair salons
+   Warm off-white, copper accent, premium feel
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Core palette - warm off-white */
+    --background: 36 33% 96%;
+    --foreground: 20 14% 12%;
+
+    /* Cards - warm white with subtle cream tint */
+    --card: 38 40% 99%;
+    --card-foreground: 20 14% 12%;
+
+    --popover: 38 40% 99%;
+    --popover-foreground: 20 14% 12%;
+
+    /* Primary - rich copper/terracotta */
+    --primary: 24 75% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - warm sand */
+    --secondary: 32 30% 92%;
+    --secondary-foreground: 20 20% 20%;
+
+    /* Muted - soft warm gray */
+    --muted: 30 20% 94%;
+    --muted-foreground: 20 10% 45%;
+
+    /* Accent - soft peach for hover/tints */
+    --accent: 28 50% 95%;
+    --accent-foreground: 24 75% 40%;
+
+    /* Status colors */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --success: 152 60% 40%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 38 95% 15%;
+
+    /* UI elements - warm borders */
+    --border: 32 25% 88%;
+    --input: 32 25% 88%;
+    --ring: 24 75% 50%;
+
+    /* Premium radius */
+    --radius: 0.875rem;
+
+    /* Sidebar - slightly warmer */
+    --sidebar-background: 34 28% 97%;
+    --sidebar-foreground: 20 14% 15%;
+    --sidebar-primary: 24 75% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 28 45% 94%;
+    --sidebar-accent-foreground: 24 75% 40%;
+    --sidebar-border: 32 25% 90%;
+    --sidebar-ring: 24 75% 50%;
+
+    /* Premium shadows - warm tinted */
+    --shadow-xs: 0 1px 2px 0 hsl(25 25% 15% / 0.03);
+    --shadow-sm: 0 1px 3px 0 hsl(25 25% 15% / 0.05), 0 1px 2px -1px hsl(25 25% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(25 25% 15% / 0.06), 0 2px 4px -2px hsl(25 25% 15% / 0.05);
+    --shadow-lg: 0 10px 15px -3px hsl(25 25% 15% / 0.07), 0 4px 6px -4px hsl(25 25% 15% / 0.05);
+    --shadow-xl: 0 20px 25px -5px hsl(25 25% 15% / 0.08), 0 8px 10px -6px hsl(25 25% 15% / 0.05);
+    --shadow-card: 0 1px 3px hsl(25 25% 15% / 0.04), 0 2px 8px -2px hsl(25 25% 15% / 0.06);
+    --shadow-card-hover: 0 4px 12px hsl(25 25% 15% / 0.08), 0 8px 20px -4px hsl(25 25% 15% / 0.08);
+
+    /* Gradients - copper accent */
+    --gradient-primary: linear-gradient(135deg, hsl(24 75% 50%), hsl(16 70% 45%));
+    --gradient-brand-bar: linear-gradient(90deg, hsl(24 75% 50%) 0%, hsl(32 70% 55%) 50%, hsl(24 75% 50%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(38 40% 99%), hsl(34 28% 97%));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'ss01' on, 'cv01' on;
+  }
+
+  /* Display headings - modern sans-serif */
+  h1, h2, h3 {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: hsl(var(--foreground));
+  }
+
+  h4, h5, h6 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+  }
+
+  /* Better text rendering */
+  p, span, li {
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@layer utilities {
+  /* Gradient text - copper */
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Background utilities */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .bg-gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .bg-brand-bar {
+    background: var(--gradient-brand-bar);
+  }
+
+  /* Premium shadow utilities */
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .shadow-premium {
+    box-shadow: var(--shadow-xl);
+  }
+
+  /* Warm glass effect */
+  .glass {
+    background: hsl(38 40% 99% / 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Mobile-first touch targets */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Safe area padding for mobile */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+
+  .safe-area-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom, 0px), 0.5rem);
+  }
+
+  /* Prevent horizontal overflow */
+  .overflow-x-safe {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* Smooth transitions */
+  .transition-premium {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer components {
+  /* Brand bar - copper gradient stripe */
+  .brand-bar {
+    height: 3px;
+    background: var(--gradient-brand-bar);
+  }
+
+  /* Form field groups - consistent spacing */
+  .form-group {
+    @apply space-y-2;
+  }
+
+  /* Switch row with warm background */
+  .switch-row {
+    @apply flex items-center justify-between p-4 bg-accent/60 rounded-xl;
+  }
+
+  /* Card list with consistent gaps */
+  .card-list {
+    @apply space-y-4;
+  }
+
+  /* Section spacing */
+  .section-spacing {
+    @apply space-y-8;
+  }
+
+  /* Premium card hover effect */
+  .card-interactive {
+    @apply transition-all duration-200 ease-out;
+  }
+  
+  .card-interactive:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-1px);
+  }
+
+  /* Mobile bottom sheet backdrop */
+  .sheet-backdrop {
+    @apply fixed inset-0 bg-foreground/25 backdrop-blur-sm;
+  }
+
+  /* Modern status pill base */
+  .status-pill {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full;
+  }
+
+  /* Skeleton loading animation */
+  .skeleton-shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--muted)) 0%,
+      hsl(var(--background)) 50%,
+      hsl(var(--muted)) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* Fade in animation for list items */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Staggered list animation */
+  .stagger-item {
+    opacity: 0;
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  .stagger-item:nth-child(1) { animation-delay: 0ms; }
+  .stagger-item:nth-child(2) { animation-delay: 50ms; }
+  .stagger-item:nth-child(3) { animation-delay: 100ms; }
+  .stagger-item:nth-child(4) { animation-delay: 150ms; }
+  .stagger-item:nth-child(5) { animation-delay: 200ms; }
+  .stagger-item:nth-child(n+6) { animation-delay: 250ms; }
+
+  /* Safe bottom for sheet buttons */
+  .pb-safe {
+    padding-bottom: max(env(safe-area-inset-bottom, 0px), 1rem);
+  }
+
+  /* Warm divider */
+  .divider-warm {
+    @apply h-px bg-gradient-to-r from-transparent via-border to-transparent;
+  }
+
+  /* Section header styling */
+  .section-header {
+    @apply text-xs font-semibold text-muted-foreground uppercase tracking-wider;
+  }
+
+  /* Icon badge with tinted background */
+  .icon-badge {
+    @apply w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary;
+  }
+
+  .icon-badge-sm {
+    @apply w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary;
+  }
+}
