@@ -15,3 +15,7 @@ server/dist/
 # --- OS/Editor ---
 .DS_Store
 .vscode/
+
+*/node_modules
+*/pnpm-lock.yaml
+

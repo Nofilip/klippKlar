@@ -1,0 +1,31 @@
+{
+ /*  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }], */
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "noImplicitAny": false,
+    "noUnusedParameters": false,
+    "skipLibCheck": false,
+    "allowJs": true,
+    "noUnusedLocals": false,
+    "strictNullChecks": false,
+      "target": "esnext",
+    "useDefineForClassFields": true,
+    /* "lib": ["ES2020", "DOM", "DOM.Iterable"], */
+    "module": "nodenext",
+    
+    
+
+    /* Bundler mode */
+    "moduleResolution": "nodenext",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+  },
+
+  "include": ["src"]
+}
